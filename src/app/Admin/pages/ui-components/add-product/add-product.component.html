@@ -1,0 +1,44 @@
+<mat-card>
+    <mat-card-title>Thêm Sản Phẩm</mat-card-title>
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tên sản phẩm</mat-label>
+          <input matInput [(ngModel)]="newProduct.name" name="name" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Giá sản phẩm</mat-label>
+          <input matInput type="number" [(ngModel)]="newProduct.price" name="price" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Danh mục</mat-label>
+          <mat-select [(ngModel)]="newProduct.category" name="category" required>
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tình trạng</mat-label>
+          <mat-select [(ngModel)]="newProduct.condition" name="condition">
+            <mat-option value="Mới">Mới</mat-option>
+            <mat-option value="Cũ">Cũ</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field *ngIf="newProduct.condition === 'Mới'" appearance="outline" class="full-width">
+          <mat-label>Màu sắc</mat-label>
+          <input matInput [(ngModel)]="newProduct.color" name="color">
+        </mat-form-field>
+  
+        <div class="file-upload">
+          <label for="fileInput">Chọn ảnh sản phẩm: </label>
+          <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+  
+        <button mat-raised-button color="primary" (click)="addProduct()">Thêm sản phẩm</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

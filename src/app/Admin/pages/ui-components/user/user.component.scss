@@ -1,0 +1,28 @@
+.user-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.filter-input {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.admin {
+  color: red;
+  font-weight: bold;
+}
+
+.user {
+  color: blue;
+  font-weight: bold;
+}

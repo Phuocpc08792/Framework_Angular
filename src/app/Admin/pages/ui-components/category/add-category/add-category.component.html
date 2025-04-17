@@ -1,0 +1,26 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Thêm Danh Mục</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <!-- Tên danh mục -->
+        <div class="col-lg-6">
+          <mat-label class="f-w-600 m-b-8 d-block">Tên danh mục</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput placeholder="Nhập tên danh mục" formControlName="name" />
+            <mat-error *ngIf="categoryForm.get('name')?.touched && categoryForm.get('name')?.invalid">
+              {{ getErrorMessage('name') }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="m-t-12">
+        <button mat-flat-button color="primary" class="m-r-8" type="submit">Thêm</button>
+        <button mat-stroked-button color="warn" type="button" (click)="onCancel()">Hủy</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

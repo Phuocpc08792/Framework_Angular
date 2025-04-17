@@ -1,0 +1,69 @@
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <mat-card-title>Danh sách danh mục</mat-card-title>
+
+    <!-- Nút thêm danh mục -->
+    <div class="action-bar">
+      <button mat-flat-button color="primary" routerLink="/admin/ui-components/category/add-category">
+        Thêm danh mục
+      </button>
+    </div>
+
+    <!-- Bộ lọc -->
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Tìm kiếm</mat-label>
+      <input matInput placeholder="Nhập để tìm kiếm..." (keyup)="applyFilter($event)">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" matSort class="w-100">
+        <!-- Cột ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="f-w-600 f-s-14">ID</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="f-s-14">{{ element.id }}</span>
+          </td>
+        </ng-container>
+
+        <!-- Cột Danh mục -->
+        <ng-container matColumnDef="danhmuc">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="f-w-600 f-s-14 p-l-0">Danh mục</th>
+          <td mat-cell *matCellDef="let element" class="p-l-0">
+            <div class="d-flex align-items-center">
+              <div class="m-l-16">
+                <h6 class="f-s-14 f-w-600">{{ element.name }}</h6>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Cột Hành động -->
+        <ng-container matColumnDef="hanhdong">
+          <th mat-header-cell *matHeaderCellDef class="f-w-600 f-s-14"></th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu hành động danh mục">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="editCategory(element.id)">
+                <mat-icon>edit</mat-icon>
+                <span>Sửa</span>
+              </button>
+              <button mat-menu-item (click)="deleteCategory(element.id)">
+                <mat-icon>delete</mat-icon>
+                <span>Xóa</span>
+              </button>
+            </mat-menu>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <!-- Phân trang -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

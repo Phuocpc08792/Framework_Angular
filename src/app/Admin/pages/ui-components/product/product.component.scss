@@ -1,0 +1,73 @@
+/* product.component.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .category-menu {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .category-menu button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .category-menu button:hover {
+    background-color: #ddd;
+  }
+  
+  .category-menu .active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .product-table {
+    width: 10%;
+    max-width: 50px;
+  }
+  
+  .product-image {
+    
+      width: 50px !important;
+      height: 50px !important;
+  
+  
+    max-width: 100%; /* Ngăn ảnh tràn ra ngoài */
+    max-height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    border-radius: 5px; /* Bo góc nhẹ cho ảnh */
+    display: block;
+    margin: auto; /* Căn giữa ảnh trong ô */
+}
+
+td {
+  max-width: 80px; /* Giới hạn độ rộng của ô */
+  overflow: hidden; /* Ẩn phần bị tràn */
+  text-align: center;
+}
+
+
+  .action-buttons {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .action-buttons button {
+    cursor: pointer;
+  }
+  

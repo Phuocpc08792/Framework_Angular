@@ -1,0 +1,59 @@
+.comment-card {
+    padding: 16px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.table-container {
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.custom-table {
+    width: 100%;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+}
+
+td, th {
+    padding: 12px;
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+/* ✅ Chỉnh kích thước avatar và viền */
+::ng-deep .avatar {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    display: block;
+    margin: auto;
+}
+
+
+/* Hiệu ứng cho nút icon */
+mat-icon {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+mat-icon:hover {
+    transform: scale(1.2);
+}

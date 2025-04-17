@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
+  <span class="logo">TechMart</span>
+
+  <span class="spacer"></span>
+
+  <nav class="nav-links">
+    <a mat-button routerLink="/">Trang chủ</a>
+    <a mat-button routerLink="/products">Sản phẩm</a>
+    <a mat-button routerLink="/about">Giới thiệu</a>
+    <a mat-button routerLink="/contact">Liên hệ</a>
+    <button mat-icon-button routerLink="/cart" matTooltip="Giỏ hàng">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <!-- Hiển thị tên người dùng hoặc nút đăng nhập -->
+    <div class="user-section">
+      <ng-container *ngIf="user; else loginButton">
+        <span class="user-name">Xin chào, {{ user.name }}</span>
+        <button mat-button (click)="logout()">Đăng xuất</button>
+      </ng-container>
+      <ng-template #loginButton>
+        <a mat-button routerLink="/login">Đăng nhập</a>
+      </ng-template>
+    </div>
+  </nav>
+</mat-toolbar>

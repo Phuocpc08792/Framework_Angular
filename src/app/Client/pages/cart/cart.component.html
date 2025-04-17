@@ -1,0 +1,30 @@
+<div class="cart-container">
+    <h2>Giỏ hàng</h2>
+    <div *ngIf="cartItems.length === 0">
+      <p>Giỏ hàng của bạn đang trống.</p>
+    </div>
+    <div *ngIf="cartItems.length > 0">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems">
+            <td>{{ item.title }}</td>
+            <td>{{ item.price | number }} VNĐ</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ (item.price * item.quantity) | number }} VNĐ</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="cart-total">
+        <h3>Tổng cộng: {{ total | number }} VNĐ</h3>
+      </div>
+      <button class="checkout-btn" (click)="proceedToCheckout()">Thanh toán</button>
+    </div>
+  </div>

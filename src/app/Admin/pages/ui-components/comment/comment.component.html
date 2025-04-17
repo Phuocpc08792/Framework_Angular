@@ -1,0 +1,99 @@
+<mat-card class="cardWithShadow">
+    <mat-card-content>
+      <h2 style="margin-bottom: 16px;">Danh sách bình luận</h2>
+  
+      <mat-form-field appearance="outline" style="width: 100%; margin: 16px 0;">
+        <mat-label>Tìm kiếm</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Tìm tên, email, tiêu đề, danh mục...">
+      </mat-form-field>
+  
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 full-width-table">
+  
+        <!-- Avatar -->
+        <ng-container matColumnDef="avatar">
+          <th mat-header-cell *matHeaderCellDef> Avatar </th>
+          <td mat-cell *matCellDef="let c">
+            <img [src]="c.avatar" alt="Avatar" width="40" height="40" style="border-radius: 50%;" />
+          </td>
+        </ng-container>
+  
+        <!-- ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let c">{{ c.id }}</td>
+        </ng-container>
+  
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Họ tên </th>
+          <td mat-cell *matCellDef="let c">{{ c.name }}</td>
+        </ng-container>
+  
+        <!-- Email -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let c">{{ c.email }}</td>
+        </ng-container>
+  
+        <!-- Title -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Tiêu đề </th>
+          <td mat-cell *matCellDef="let c">{{ c.title }}</td>
+        </ng-container>
+  
+        <!-- Message -->
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef> Nội dung </th>
+          <td mat-cell *matCellDef="let c">{{ c.message }}</td>
+        </ng-container>
+  
+        <!-- Rating -->
+        <ng-container matColumnDef="rating">
+          <th mat-header-cell *matHeaderCellDef> Đánh giá </th>
+          <td mat-cell *matCellDef="let c">{{ c.rating }} ⭐</td>
+        </ng-container>
+  
+        <!-- Status -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+          <td mat-cell *matCellDef="let c">
+            <span [ngStyle]="{'color': c.status === 'approved' ? 'green' : c.status === 'pending' ? 'orange' : 'red'}">
+              {{ c.status === 'approved' ? 'Đã duyệt' : c.status === 'pending' ? 'Chờ duyệt' : 'Từ chối' }}
+            </span>
+          </td>
+        </ng-container>
+  
+        <!-- Category -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> Danh mục </th>
+          <td mat-cell *matCellDef="let c">{{ c.category }}</td>
+        </ng-container>
+  
+        <!-- Date -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Ngày </th>
+          <td mat-cell *matCellDef="let c">{{ c.date | date: 'dd/MM/yyyy' }}</td>
+        </ng-container>
+  
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Hành động </th>
+          <td mat-cell *matCellDef="let c">
+            <button mat-icon-button color="primary" (click)="editComment(c)" matTooltip="Chỉnh sửa">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteComment(c.id)" matTooltip="Xóa">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <!-- Table Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+  

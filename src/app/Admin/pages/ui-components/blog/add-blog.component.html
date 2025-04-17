@@ -1,0 +1,30 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Thêm Bài Viết Mới</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="b-t-1">
+    <form (submit)="addPost()">
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Tiêu đề -->
+          <mat-label class="f-w-600 m-b-8 d-block">Tiêu đề</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput [(ngModel)]="newPost.title" name="title" placeholder="Nhập tiêu đề bài viết" required />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-12">
+          <!-- Nội dung -->
+          <mat-label class="f-w-600 m-b-8 d-block">Nội dung</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <textarea matInput [(ngModel)]="newPost.content" name="content" placeholder="Nhập nội dung bài viết" rows="5" required></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="m-t-12">
+        <button mat-flat-button color="primary" class="m-r-8" type="submit">Thêm Bài Viết</button>
+        <button mat-stroked-button color="warn" type="reset">Hủy</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

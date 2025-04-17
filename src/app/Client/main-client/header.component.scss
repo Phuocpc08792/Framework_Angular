@@ -1,0 +1,26 @@
+.header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  
+    .spacer {
+      flex: 1 1 auto;
+    }
+  }
+  
