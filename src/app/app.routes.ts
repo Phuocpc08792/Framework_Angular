@@ -17,6 +17,27 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'contact',
+        loadComponent: () =>
+          import('./Client/pages/Contact/contact.component').then(
+            (m) => m.ContactComponent
+          ),
+      },
+      {
+        path: 'blog',
+        loadComponent: () =>
+          import('./Client/pages/blog/blog.component').then(
+            (m) => m.BlogComponent
+          ),
+      },
+      {
+        path: 'about',
+        loadComponent: () =>
+          import('./Client/pages/introduce/introduce.component').then(
+            (m) => m.IntroduceComponent
+          ),
+      },
+      {
         path: 'cart',
         loadComponent: () =>
           import('./Client/pages/cart/cart.component').then(
@@ -28,7 +49,7 @@ export const routes: Routes = [
 
   // Giao diện Admin
   {
-    path: 'admin',
+    path: 'Admin',
     component: FullComponent,
     children: [
       {

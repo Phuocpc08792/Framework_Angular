@@ -3,12 +3,12 @@ import { StarterComponent } from './starter/starter.component';
 
 export const PagesRoutes: Routes = [
   {
-    path: '',
+    path: 'Dashboard',
     component: StarterComponent,
     data: {
       title: 'Dashboard',
       urls: [
-        { title: 'Dashboard', url: '/admin/dashboard' },
+        { title: 'Dashboard', url: '/Admin/dashboard' },
         { title: 'Starter' },
       ],
     },
