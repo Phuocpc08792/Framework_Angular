@@ -79,7 +79,7 @@ export class UserComponent implements AfterViewInit {
   }
 
   editUser(userId: number) {
-    this.router.navigate([`/admin/ui-components/user/edit/${userId}`]);
+    this.router.navigate([`/Admin/ui-components/user/edit/${userId}`]);
   }
 
   deleteUser(id: number) {
