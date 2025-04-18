@@ -7,7 +7,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Dashboard',
     iconName: 'solar:atom-line-duotone',
-    route: '/admin/dashboard',
+    route: '/Admin/dashboard',
   },
   {
     navCap: 'Bảng điều khiển',
@@ -15,12 +15,12 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Quản lý người dùng',
     iconName: 'solar:user-id-line-duotone',
-    route: '/admin/ui-components/user'
+    route: '/Admin/ui-components/user'
   },
   {
     displayName: 'Bình luận',
     iconName: 'solar:chat-round-line-duotone',
-    route: '/admin/ui-components/comment',
+    route: '/Admin/ui-components/comment',
   },
   {
     displayName: 'Sản Phẩm',
@@ -29,12 +29,12 @@ export const navItems: NavItem[] = [
       {
         displayName: 'Danh sách sản phẩm',
         iconName: 'solar:round-alt-arrow-right-line-duotone',
-        route: '/admin/ui-components/product',
+        route: '/Admin/ui-components/product',
       },
       {
         displayName: 'Thêm sản phẩm',
         iconName: 'solar:round-alt-arrow-right-line-duotone',
-        route: '/admin/ui-components/add-product',
+        route: '/Admin/ui-components/add-product',
       },
       {
         displayName: 'Sửa sản phẩm',
@@ -50,12 +50,12 @@ export const navItems: NavItem[] = [
       {
         displayName: 'Danh sách danh mục',
         iconName: 'solar:round-alt-arrow-right-line-duotone',
-        route: '/admin/ui-components/category',
+        route: '/Admin/ui-components/category',
       },
       {
         displayName: 'Thêm danh mục',
         iconName: 'solar:round-alt-arrow-right-line-duotone',
-        route: '/admin/ui-components/category/add-category',
+        route: '/Admin/ui-components/category/add-category',
       },
     ],
   },
@@ -66,13 +66,13 @@ export const navItems: NavItem[] = [
       {
         displayName: 'Danh sách bài viết',
         subItemIcon: true,
-        route: '/admin/ui-components/blog',
+        route: '/Admin/ui-components/blog',
         iconName: 'solar:round-alt-arrow-right-line-duotone',
       },
       {
         displayName: 'Thêm bài viết',
         subItemIcon: true,
-        route: '/admin/ui-components/add-blog',
+        route: '/Admin/ui-components/add-blog',
         iconName: 'solar:round-alt-arrow-right-line-duotone',
       },
     ],
@@ -80,7 +80,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Đơn hàng',
     iconName: 'solar:bill-list-line-duotone',
-    route: '/admin/ui-components/bill',
+    route: '/Admin/ui-components/bill',
   },
   {
     navCap: 'Auth',
