@@ -50,7 +50,7 @@ export class AddCategoryComponent implements OnInit {
     this.categoryService.create(name).subscribe({
       next: (category) => {
         this.snackBar.open('Thêm danh mục thành công', 'Đóng', { duration: 2000 });
-        this.router.navigate(['/admin/ui-components/category']);
+        this.router.navigate(['/Admin/ui-components/category']);
       },
       error: (error) => {
         this.snackBar.open(error.message, 'Đóng', { duration: 3000 });
@@ -59,7 +59,7 @@ export class AddCategoryComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/admin/ui-components/category']);
+    this.router.navigate(['/Admin/ui-components/category']);
   }
 
   getErrorMessage(controlName: string): string {

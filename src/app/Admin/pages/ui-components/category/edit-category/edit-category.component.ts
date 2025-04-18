@@ -54,7 +54,7 @@ export class EditCategoryComponent implements OnInit {
       },
       error: (error) => {
         this.snackBar.open(error.message, 'Đóng', { duration: 3000 });
-        this.router.navigate(['/admin/ui-components/category']);
+        this.router.navigate(['/Admin/ui-components/category']);
       },
     });
   }
@@ -69,7 +69,7 @@ export class EditCategoryComponent implements OnInit {
     this.categoryService.update(this.categoryId, name).subscribe({
       next: () => {
         this.snackBar.open('Cập nhật danh mục thành công', 'Đóng', { duration: 2000 });
-        this.router.navigate(['/admin/ui-components/category']);
+        this.router.navigate(['/Admin/ui-components/category']);
       },
       error: (error) => {
         this.snackBar.open(error.message, 'Đóng', { duration: 3000 });
@@ -78,7 +78,7 @@ export class EditCategoryComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/admin/ui-components/category']);
+    this.router.navigate(['/Admin/ui-components/category']);
   }
 
   getErrorMessage(controlName: string): string {

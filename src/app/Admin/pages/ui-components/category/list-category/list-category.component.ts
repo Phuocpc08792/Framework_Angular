@@ -88,6 +88,6 @@ export class ListCategoryComponent implements AfterViewInit {
   }
 
   editCategory(id: number) {
-    this.router.navigate(['/admin/ui-components/category/edit', id]);
+    this.router.navigate(['/Admin/ui-components/category/edit', id]);
   }
 }
