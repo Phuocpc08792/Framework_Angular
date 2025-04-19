@@ -81,7 +81,7 @@ export class EditProductComponent implements OnInit {
       },
       error: (error) => {
         this.snackBar.open(error.message, 'Đóng', { duration: 3000 });
-        this.router.navigate(['/admin/ui-components/product']);
+        this.router.navigate(['/Admin/ui-components/product']);
       },
     });
   }
@@ -119,7 +119,7 @@ export class EditProductComponent implements OnInit {
     this.productService.update(this.productId, productData).subscribe({
       next: () => {
         this.snackBar.open('Cập nhật sản phẩm thành công', 'Đóng', { duration: 2000 });
-        this.router.navigate(['/admin/ui-components/product']);
+        this.router.navigate(['/Admin/ui-components/product']);
       },
       error: (error) => {
         this.snackBar.open(error.message, 'Đóng', { duration: 3000 });
@@ -128,7 +128,7 @@ export class EditProductComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/admin/ui-components/product']);
+    this.router.navigate(['/Admin/ui-components/product']);
   }
 
   getErrorMessage(controlName: string): string {

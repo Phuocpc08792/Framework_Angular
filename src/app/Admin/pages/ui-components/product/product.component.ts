@@ -140,6 +140,6 @@ export class ProductComponent implements AfterViewInit {
   }
 
   editProduct(id: number) {
-    this.router.navigate(['/admin/ui-components/product/edit', id]);
+    this.router.navigate(['/Admin/ui-components/product/edit', id]);
   }
 }
