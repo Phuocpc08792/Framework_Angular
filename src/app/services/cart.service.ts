@@ -15,7 +15,7 @@ export class CartService {
     private authService: AuthService
   ) {}
 
-  addToCart(productId: number, quantity: number): Observable<any> {
+  addToCart(productId: number, quantity: number = 1): Observable<any> {
     if (!this.authService.isLoggedIn()) {
       return throwError(() => new Error('Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!'));
     }
@@ -31,12 +31,28 @@ export class CartService {
       .pipe(catchError(this.handleError));
   }
 
+  updateCartItem(productId: number, quantity: number): Observable<any> {
+    if (!this.authService.isLoggedIn()) {
+      return throwError(() => new Error('Vui lòng đăng nhập để cập nhật giỏ hàng!'));
+    }
+    return this.http.put(`${this.apiUrl}/update/${productId}`, { quantity }, { withCredentials: true })
+      .pipe(catchError(this.handleError));
+  }
+
+  removeFromCart(productId: number): Observable<any> {
+    if (!this.authService.isLoggedIn()) {
+      return throwError(() => new Error('Vui lòng đăng nhập để xóa sản phẩm khỏi giỏ hàng!'));
+    }
+    return this.http.delete(`${this.apiUrl}/remove/${productId}`, { withCredentials: true })
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: any): Observable<never> {
     let errorMessage = 'Đã xảy ra lỗi!';
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Lỗi: ${error.error.message}`;
     } else {
-      errorMessage = `Mã lỗi: ${error.status}\nThông báo: ${error.message}`;
+      errorMessage = error.error?.message || `Mã lỗi: ${error.status}`;
     }
     return throwError(() => new Error(errorMessage));
   }

@@ -61,22 +61,9 @@ export class AuthService {
   }
 
   checkSession(): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/check-session`, { withCredentials: true })
-      .pipe(
-        tap((response: any) => {
-          if (response.isLoggedIn && response.user) {
-            this.currentUserSubject.next(response.user);
-            localStorage.setItem('currentUser', JSON.stringify(response.user)); // Cập nhật localStorage
-          } else {
-            this.logoutLocally(); // Nếu không có phiên, đăng xuất cục bộ
-          }
-        }),
-        catchError((err) => {
-          this.logoutLocally();
-          throw err;
-        })
-      );
+    return this.http.get(`${this.API_URL}/check-session`, { withCredentials: true });
   }
+
 
   getCurrentUser(): any {
     return this.currentUserSubject.value;

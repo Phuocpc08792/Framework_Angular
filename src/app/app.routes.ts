@@ -4,7 +4,6 @@ import { FullComponent } from './Admin/layouts/full/full.component';
 import { MainClientComponent } from './Client/main-client/main-client.component';
 
 export const routes: Routes = [
-  // Giao diện Client
   {
     path: '',
     component: MainClientComponent,
@@ -23,10 +22,29 @@ export const routes: Routes = [
             (m) => m.CartComponent
           ),
       },
+      {
+        path: 'checkout',
+        loadComponent: () =>
+          import('./Client/pages/checkout/checkout.component').then(
+            (m) => m.CheckoutComponent
+          ),
+      },
+      {
+        path: 'orders',
+        loadComponent: () =>
+          import('./Client/pages/orders/orders.component').then(
+            (m) => m.OrdersComponent
+          ),
+      },
+      {
+        path: 'order/:id',
+        loadComponent: () =>
+          import('./Client/pages/order-detail/order-detail.component').then(
+            (m) => m.OrderDetailComponent
+          ),
+      },
     ],
   },
-
-  // Giao diện Admin
   {
     path: 'admin',
     component: FullComponent,
@@ -55,8 +73,6 @@ export const routes: Routes = [
       },
     ],
   },
-
-  // Authentication
   {
     path: 'auth',
     component: BlankComponent,
@@ -70,8 +86,6 @@ export const routes: Routes = [
       },
     ],
   },
-
-  // Fallback
   {
     path: '**',
     redirectTo: '',

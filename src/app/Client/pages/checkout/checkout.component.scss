@@ -1,0 +1,26 @@
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    mat-card {
+      margin-bottom: 20px;
+    }
+  
+    .cart-total {
+      text-align: right;
+      margin-top: 20px;
+    }
+  
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+  
+    mat-card-actions {
+      display: flex;
+      justify-content: center;
+    }
+  }
