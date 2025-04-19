@@ -23,6 +23,7 @@ export const routes: Routes = [
             (m) => m.ContactComponent
           ),
       },
+      
       {
         path: 'blog',
         loadComponent: () =>
